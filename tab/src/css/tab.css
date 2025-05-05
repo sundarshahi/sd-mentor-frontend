@@ -1,0 +1,29 @@
+.tab-main {
+  display: flex;
+  gap: 3rem;
+}
+
+.tab-content {
+  margin-top: 3rem;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.tab {
+  font-weight: 500;
+  color: rgb(197, 183, 183);
+}
+
+.tab:hover {
+  color: #000000;
+  cursor: pointer;
+  text-decoration: inherit;
+}
+.tab-active {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-underline-offset: 3px;
+}
