@@ -1,29 +1,38 @@
 import "../css/tab.css";
-import { useState } from "react";
-const Tab = () => {
+import { useState, ReactNode } from "react";
+
+interface TabProps {
+  tabs: {
+    label: string;
+    content: ReactNode;
+  }[];
+}
+const Tab = ({tabs}: TabProps) => {
+  const [content, setContent] = useState<ReactNode>(tabs[0].content);
   const [activeTab, setActiveTab] = useState("First");
-  const [content, setContent] = useState("This is First Tab Content.");
 
   const handleClick = (e:React.MouseEvent<HTMLDivElement>) => {
     switch (e.currentTarget.innerText) {
-      case "First Tab":
-        setContent("This is First Tab Content.");
+      case `${tabs[0].label}`:
+        setContent(tabs[0].content);
+        console.log(tabs[0].content);
         setActiveTab("First");
         break;
-      case "Second Tab":
-        setContent("This is Second Tab Content.");
+      case `${tabs[1].label}`:
+        setContent(tabs[1].content);
+        console.log(tabs[1].content);
         setActiveTab("Second");
         break;
-      case "Third Tab":
-        setContent("This is Third Tab Content.");
+      case `${tabs[2].label}`:
+        setContent(tabs[2].content);
         setActiveTab("Third");
         break;
-      case "Fourth Tab":
-        setContent("This is Fourth Tab Content.");
+      case `${tabs[3].label}`:
+        setContent(tabs[3].content);
         setActiveTab("Fourth");
         break;
       default:
-        setContent("This is First Tab Content.");
+        setContent(tabs[0].content);
         setActiveTab("First");
         break;
     }
@@ -42,25 +51,25 @@ const Tab = () => {
           className={activeTab === "First" ? "tab tab-active" : "tab"}
           onClick={handleClick}
         >
-          First Tab
+          {tabs[0].label}
         </div>
         <div
           className={activeTab === "Second" ? "tab tab-active" : "tab"}
           onClick={handleClick}
         >
-          Second Tab
+          {tabs[1].label}
         </div>
         <div
           className={activeTab === "Third" ? "tab tab-active" : "tab"}
           onClick={handleClick}
         >
-          Third Tab
+          {tabs[2].label}
         </div>
         <div
           className={activeTab === "Fourth" ? "tab tab-active" : "tab"}
           onClick={handleClick}
         >
-          Fourth Tab
+          {tabs[3].label}
         </div>
       </div>
       <div className="tab-content">{content}</div>
