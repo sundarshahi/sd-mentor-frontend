@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.progress-bar{
+  width: 200px;
+  height: 25px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin: auto;
+  display: flex;
+  
+}
+
+.btn{
+  margin: 10px;
+  border-radius: 5px;
+}

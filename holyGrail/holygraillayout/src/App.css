@@ -1,0 +1,45 @@
+* {
+  background-color: #f5ecd5;
+}
+.App-header {
+  background-color: #a4b465;
+  height: 60px;
+  text-align: center;
+}
+
+.App-main {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.App-footer {
+  background-color: #626f47;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.main-div {
+  display: flex;
+}
+
+.navigation {
+  background-color: #f0bb78;
+  width: 100px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+}
+
+.ads {
+  background-color: #f0bb78;
+  width: 100px;
+  position: fixed;
+  right: 0;
+  height: 100%;
+}
