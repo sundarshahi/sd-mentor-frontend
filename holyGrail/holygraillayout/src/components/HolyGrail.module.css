@@ -1,0 +1,42 @@
+.header {
+  background-color: #a4b465;
+  height: 60px;
+  text-align: center;
+}
+
+.main {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.footer {
+  background-color: #626f47;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.maindiv {
+  display: flex;
+}
+
+.navigation {
+  background-color: #f0bb78;
+  width: 100px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+}
+
+.ads {
+  background-color: #f0bb78;
+  width: 100px;
+  position: fixed;
+  right: 0;
+  height: 100%;
+}

@@ -1,16 +1,8 @@
 import "./App.css";
-
+import HolyGrail from "./components/HolyGrail";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Header</header>
-      <div className="main-div">
-        <aside className="navigation">Navigation</aside>
-        <main className="App-main">Main</main>
-        <aside className="ads">Ads</aside>
-      </div>
-      <footer className="App-footer">Footer</footer>
-    </div>
+    <HolyGrail />
   );
 }
 
