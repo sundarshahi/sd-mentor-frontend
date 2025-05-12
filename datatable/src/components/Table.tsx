@@ -1,22 +1,19 @@
+import type { TableHeader, TableBody } from "../App";
 import styles from "./Table.module.css";
 import { useState } from "react";
-interface TableData {
-  data: {
-    id: number;
-    name: string;
-    age: number;
-  }[];
+interface TableProps {
+  tableHeaders: TableHeader[];
+  tableBody: TableBody[];
 }
-const Table = ({ data }: TableData) => {
+const Table = ({ tableHeaders, tableBody }: TableProps) => {
   const [rows, setRows] = useState(5);
   const [page, setPage] = useState(1);
 
-  const totalPages = Math.ceil(data.length / rows);
+  const totalPages = Math.ceil(tableBody.length / rows);
 
   const startIndex = (page - 1) * rows;
   const endIndex = startIndex + rows;
-  const currentPageData = data.slice(startIndex, endIndex);
-  
+  const currentPageData = tableBody.slice(startIndex, endIndex);
 
   return (
     <div>
@@ -26,17 +23,21 @@ const Table = ({ data }: TableData) => {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th className={styles.th}>ID</th>
-                <th className={styles.th}>Name</th>
-                <th className={styles.th}>Age</th>
+                {tableHeaders.map((header) => (
+                  <th className={styles.th} key={header.key}>
+                    {header.label}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              {currentPageData.map((tableItem) => (
-                <tr key={tableItem.id}>
-                  <td className={styles.td}>{tableItem.id}</td>
-                  <td className={styles.td}>{tableItem.name}</td>
-                  <td className={styles.td}>{tableItem.age}</td>
+              {currentPageData.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {Object.values(row).map((val, colIndex) => (
+                    <td key={colIndex} className={styles.td}>
+                      {val}
+                    </td>
+                  ))}
                 </tr>
               ))}
             </tbody>
@@ -45,13 +46,23 @@ const Table = ({ data }: TableData) => {
 
         <div className={styles.pages}>
           <div>
-            <button className={styles.btn} onClick={() => setPage((prev) => Math.max(prev - 1, 1))}>Previous</button>
-            {" "}Pages {page} of {totalPages}{" "}
-            <button className={styles.btn} onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}>Next</button>
+            <button
+              className={styles.btn}
+              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+            >
+              Previous
+            </button>{" "}
+            Pages {page} of {totalPages}{" "}
+            <button
+              className={styles.btn}
+              onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
+            >
+              Next
+            </button>
           </div>
-          
+
           <div style={{ width: "10%" }}></div>
-          <div style={{ display: "flex"}}>
+          <div style={{ display: "flex" }}>
             Rows per page:
             <select
               className={styles.dropdown}
