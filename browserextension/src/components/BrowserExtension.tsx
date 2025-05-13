@@ -40,6 +40,12 @@ const BrowserExtension = () => {
     return false;
   });
 
+
+  const onRemove = (id: number) => {
+    const updatedExtensions = extensions.filter((extension)=> extension.id !== id);
+    setExtensions(updatedExtensions);
+  };
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container}>
@@ -114,7 +120,14 @@ const BrowserExtension = () => {
                 </div>
 
                 <div className={styles.singleContentBottom}>
-                  <button className={styles.removebtn}>Remove</button>
+                  <button
+                    className={styles.removebtn}
+                    onClick={() => {
+                      onRemove(content.id);
+                    }}
+                  >
+                    Remove
+                  </button>
                   <div className={styles.switch}>
                     <ToggleSwitch
                       id={content.id}

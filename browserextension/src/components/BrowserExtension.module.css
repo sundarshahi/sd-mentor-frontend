@@ -52,6 +52,7 @@
   border-radius: 10px;
   background-color: rgb(200, 193, 193);
   color: black;
+  cursor: pointer;
 }
 .darkimg {
   width: 30px;
@@ -59,6 +60,7 @@
   border-radius: 10px;
   background-color: grey;
   color: black;
+  cursor: pointer;
 }
 
 .mid {
@@ -142,6 +144,7 @@
   background-color: var(--background-color);
   border: 1px black solid;
   color: grey;
+  cursor: pointer;
 }
 .switch {
   margin-left: auto;
