@@ -1,0 +1,26 @@
+.main{
+    background-color: rgb(184, 184, 184);
+    width: 32px;
+    height: 17px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.slider{
+    width: 15px;
+    margin: 1px;
+    height: 15px;
+    border-radius: 50px;
+    background-color: white;
+    transition: left 0.3s;
+    position: absolute;
+}
+.main.on{
+    background-color: #f44336;
+}
+
+.main.on .slider{
+    left: 15px;
+}

@@ -1,0 +1,21 @@
+html,
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.light-theme {
+  --main-container-background: url("https://images.pexels.com/photos/8516712/pexels-photo-8516712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  --container-background-color: #e8f9ff;
+  --background-color: white;
+  --button-color: black;
+  color: black;
+}
+
+.dark-theme {
+  --main-container-background: #021526;
+  --container-background-color: #021526;
+  --background-color: #31363f;
+  --button-color: white;
+  color: white;
+}
