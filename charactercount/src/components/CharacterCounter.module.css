@@ -36,6 +36,7 @@
 .textAreaField {
   border-radius: 5px;
   height: 100px;
+  min-width: 150px;
   padding: 10px;
   background-color: var(--text-field-background);
   color: var(--field-text);
@@ -60,9 +61,14 @@
   height: 15px;
 }
 
+.readingTime {
+  display: flex;
+  margin-left: auto;
+  color: grey;
+}
+
 .countContainer {
   margin-top: 30px;
-  height: 100px;
   display: flex;
   gap: 1rem;
   color: black;
@@ -133,4 +139,57 @@
   padding: 0px;
   margin-top: 10px;
   color: grey;
+}
+
+
+
+
+/* Mobile Phones (uptp 600px) */
+@media (max-width: 600px) {
+  .topContainer {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .inputDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0%;
+  }
+
+  .readingTime {
+    margin-left: 0px;
+    margin-bottom: 15px;
+  }
+
+  .countContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lettercount{
+    width: 100%;
+  }
+
+  .wordscount{
+    width: 100%;
+  }
+
+  .sentencecount{
+    width: 100%;
+  }
+
+  .bottomContainer {
+    display: block;
+    width: 100%;
+  }
 }

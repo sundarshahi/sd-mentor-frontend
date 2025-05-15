@@ -96,7 +96,9 @@ const CharacterCounter = () => {
           />
         </div>
       </div>
-      <h1>Analyze your text in real-time</h1>
+      <h1 style={{ justifyContent: "center", display: "flex" }}>
+        Analyze your text in real-time
+      </h1>
 
       <div className={styles.container}>
         <textarea
@@ -124,7 +126,7 @@ const CharacterCounter = () => {
               placeholder="Enter character limit"
             />
           )}
-          <div style={{ display: "flex", marginLeft: "auto", color: "grey" }}>
+          <div className={styles.readingTime}>
             Approx.reading time: {readingTime} minute
           </div>
         </div>
@@ -144,42 +146,44 @@ const CharacterCounter = () => {
 
       <div className={styles.bottomContainer}>
         <h3>Letter Density</h3>
-        {Object.entries(letterDensity).length > 0 && (
-          <ul className={styles.ul}>
-            {(showAll
-              ? Object.entries(letterDensity).sort((a, b) => b[1] - a[1])
-              : Object.entries(letterDensity)
-                  .sort((a, b) => b[1] - a[1])
-                  .slice(0, 5)
-            ).map(([letter, percent]) => (
-              <li key={letter} className={styles.li}>
-                <span style={{ width: "5%" }}>{letter.toUpperCase()}</span>
-                <div className={styles.progressBar}>
-                  <div
-                    style={{
-                      width: `${percent}%`,
-                      height: "10px",
-                      borderRadius: "5px",
-                      backgroundColor: "#DC8BE0",
-                    }}
-                  ></div>
-                </div>
+        <div>
+          {" "}
+          {Object.entries(letterDensity).length > 0 && (
+            <ul className={styles.ul}>
+              {(showAll
+                ? Object.entries(letterDensity).sort((a, b) => b[1] - a[1])
+                : Object.entries(letterDensity)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 5)
+              ).map(([letter, percent]) => (
+                <li key={letter} className={styles.li}>
+                  <span style={{ width: "5%" }}>{letter.toUpperCase()}</span>
+                  <div className={styles.progressBar}>
+                    <div
+                      style={{
+                        width: `${percent}%`,
+                        height: "10px",
+                        borderRadius: "5px",
+                        backgroundColor: "#DC8BE0",
+                      }}
+                    ></div>
+                  </div>
 
-                <div style={{ color: "grey" }}>
-                  {letterCount[letter]}
-                  {" ("}
-                  {percent}%{")"}
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {Object.entries(letterDensity).length > 5 && (
-          <button onClick={toggleShowAll} className={styles.morelessBtn}>
-            {showAll ? "Show Less \u02c4" : "Show More \u02c5"}
-          </button>
-        )}
+                  <div style={{ color: "grey" }}>
+                    {letterCount[letter]}
+                    {" ("}
+                    {percent}%{")"}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+          {Object.entries(letterDensity).length > 5 && (
+            <button onClick={toggleShowAll} className={styles.morelessBtn}>
+              {showAll ? "Show Less \u02c4" : "Show More \u02c5"}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
