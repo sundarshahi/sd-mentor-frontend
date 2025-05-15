@@ -61,6 +61,12 @@
   height: 15px;
 }
 
+.applyButton{
+  margin-left: 3px;
+  height: 15px;
+  font-size: 10px;
+}
+
 .readingTime {
   display: flex;
   margin-left: auto;
@@ -76,26 +82,29 @@
 
 .lettercount {
   background: url("https://images.pexels.com/photos/7130870/pexels-photo-7130870.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load");
-  border-radius: 5px;
+  border-radius: 15px;
   width: 32%;
   padding-left: 5px;
-  min-width: 150px;
+  min-width: 200px;
+  height: 110px;
 }
 
 .wordscount {
   background: url("https://images.pexels.com/photos/7135052/pexels-photo-7135052.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-  border-radius: 5px;
+  border-radius: 15px;
   width: 32%;
-  min-width: 150px;
+  min-width: 200px;
   padding-left: 5px;
+  height: 110px;
 }
 
 .sentencecount {
   background: url("https://images.pexels.com/photos/7130873/pexels-photo-7130873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-  border-radius: 5px;
+  border-radius: 15px;
   width: 32%;
   padding-left: 5px;
-  min-width: 150px;
+  min-width: 200px;
+  height: 110px;
 }
 
 .p {
@@ -142,8 +151,6 @@
 }
 
 
-
-
 /* Mobile Phones (uptp 600px) */
 @media (max-width: 600px) {
   .topContainer {
@@ -176,20 +183,64 @@
     gap: 10px;
   }
 
-  .lettercount{
+  .lettercount {
     width: 100%;
   }
 
-  .wordscount{
+  .wordscount {
     width: 100%;
   }
 
-  .sentencecount{
+  .sentencecount {
     width: 100%;
   }
 
   .bottomContainer {
     display: block;
     width: 100%;
+  }
+}
+
+/* Tablets Phones (601px to 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .topContainer {
+    width: 95%;
+  }
+
+  .container {
+    width: 95%;
+    height: fit-content;
+  }
+
+  .inputDiv {
+    width: 100%;
+    display: flex;
+    padding: 0%;
+  }
+
+  .countContainer {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .lettercount {
+    width: 33.33%;
+    min-width: 100px;
+  }
+
+  .wordscount {
+    width: 33.33%;
+    min-width: 100px;
+  }
+
+  .sentencecount {
+    width: 33.33%;
+    min-width: 100px;
+  }
+
+  .bottomContainer {
+    display: block;
+    width: 95%;
   }
 }

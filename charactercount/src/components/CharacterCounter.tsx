@@ -1,5 +1,5 @@
 import styles from "./CharacterCounter.module.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../App";
 
 import sun from "../assets/images/icon-sun.svg";
@@ -25,30 +25,24 @@ const CharacterCounter = () => {
 
   const [showAll, setShowAll] = useState(false);
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const inputText = e.target.value;
-
-    if (characterlimit > 0 && inputText.length > characterlimit) {
-      alert(
-        `Character limit exceeded. You cannot enter more than ${characterlimit} characters.`
-      );
-      return;
-    }
-
-    setText(inputText);
-
+  useEffect(() => {
     const characterCount = excludeSpaces
-      ? inputText.replace(/\s/g, "").length
-      : inputText.length;
+      ? text.replace(/\s/g, "").length
+      : text.length;
     setCharacterCount(characterCount);
 
-    const words = inputText.trim().split(/\s+/).filter(Boolean);
+    const words = text.trim().split(/\s+/).filter(Boolean);
     setWordsCount(words.length);
 
-    const sentences = inputText.match(/[^.!?]+[.!?]/g);
+    const sentences = text.match(/[^.!?]+[.!?]/g);
     setSentenceCount(sentences ? sentences.length : 0);
 
-    setReadingTime(Math.round(inputText.length / 200));
+    setReadingTime(Math.round(text.length / 200));
+  }, [text, characterlimit, excludeSpaces]);
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const inputText = e.target.value;
+    setText(inputText);
 
     const letters = inputText.toLowerCase().replace(/[^a-z]/g, "");
     const totalLetters = letters.length;
@@ -67,6 +61,20 @@ const CharacterCounter = () => {
     }
 
     setLetterDensity(densityMap);
+    applyLimit();
+  };
+
+  const applyLimit = () => {
+    if (
+      isCharLimitActive &&
+      characterlimit > 0 &&
+      text.length > characterlimit
+    ) {
+      setText(text.slice(0, characterlimit));
+      alert(
+        `Character limit exceeded. You cannot enter more than ${characterlimit} characters.`
+      );
+    }
   };
 
   const handleExcludeSpacesChange = (
@@ -76,7 +84,13 @@ const CharacterCounter = () => {
   };
 
   const handleSetCharacterLimit = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsCharLimitActive(e.target.checked);
+    const isChecked = e.target.checked;
+    console.log(isChecked,"checked");
+
+    setIsCharLimitActive(isChecked);
+    if (!isChecked) {
+      setCharacterLimit(0);
+    }
   };
 
   const toggleShowAll = () => {
@@ -117,14 +131,17 @@ const CharacterCounter = () => {
             Set Character Limit
           </label>
           {isCharLimitActive && (
-            <input
-              type="number"
-              min="1"
-              className={styles.limitInput}
-              value={characterlimit > 0 ? characterlimit : ""}
-              onChange={(e) => setCharacterLimit(Number(e.target.value))}
-              placeholder="Enter character limit"
-            />
+            <div>
+              <input
+                type="number"
+                min="1"
+                className={styles.limitInput}
+                value={characterlimit > 0 ? characterlimit : ""}
+                onChange={(e) => setCharacterLimit(Number(e.target.value))}
+                placeholder="Enter character limit"
+              />
+              <button onClick={applyLimit} className={styles.applyButton}>Apply</button>
+            </div>
           )}
           <div className={styles.readingTime}>
             Approx.reading time: {readingTime} minute
