@@ -1,0 +1,136 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.topContainer {
+  display: flex;
+  align-items: center;
+  width: 75%;
+}
+
+.icon {
+  background-color: rgb(198, 190, 190);
+  height: 33px;
+  width: 33px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+.img {
+  height: 30px;
+  width: 30px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.textAreaField {
+  border-radius: 5px;
+  height: 100px;
+  padding: 10px;
+  background-color: var(--text-field-background);
+  color: var(--field-text);
+}
+
+.inputDiv {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.label {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  color: grey;
+}
+
+.limitInput {
+  width: 50px;
+  height: 15px;
+}
+
+.countContainer {
+  margin-top: 30px;
+  height: 100px;
+  display: flex;
+  gap: 1rem;
+  color: black;
+}
+
+.lettercount {
+  background: url("https://images.pexels.com/photos/7130870/pexels-photo-7130870.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load");
+  border-radius: 5px;
+  width: 32%;
+  padding-left: 5px;
+  min-width: 150px;
+}
+
+.wordscount {
+  background: url("https://images.pexels.com/photos/7135052/pexels-photo-7135052.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  border-radius: 5px;
+  width: 32%;
+  min-width: 150px;
+  padding-left: 5px;
+}
+
+.sentencecount {
+  background: url("https://images.pexels.com/photos/7130873/pexels-photo-7130873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  border-radius: 5px;
+  width: 32%;
+  padding-left: 5px;
+  min-width: 150px;
+}
+
+.p {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 7px;
+}
+
+.bottomContainer {
+  display: flex;
+  width: 75%;
+  flex-direction: column;
+}
+
+.ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: grey;
+}
+
+.progressBar {
+  width: 78%;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--background-pogress);
+  margin-right: auto;
+}
+
+.morelessBtn {
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  margin-top: 10px;
+  color: grey;
+}

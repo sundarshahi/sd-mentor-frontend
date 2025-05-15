@@ -1,0 +1,18 @@
+#root {
+  box-sizing: border-box;
+}
+
+.light-theme{
+  background-color: aliceblue;
+  color: black;
+  --background-pogress: white;
+  --text-field-background: white;
+  --field-text: black;
+}
+.dark-theme{
+  background-color: #070F2B;
+  color: white;
+  --background-pogress: #2f323e;
+  --text-field-background: #2f323e;
+  --field-text: white;
+}
