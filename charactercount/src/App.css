@@ -1,20 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 900px;
+}
 #root {
   box-sizing: border-box;
 }
 
-html{
+html {
   min-height: 100vh;
 }
 
-.light-theme{
+.light-theme {
   background-color: aliceblue;
   color: black;
   --background-pogress: white;
   --text-field-background: white;
   --field-text: black;
 }
-.dark-theme{
-  background-color: #070F2B;
+.dark-theme {
+  background-color: #070f2b;
   color: white;
   --background-pogress: #2f323e;
   --text-field-background: #2f323e;
