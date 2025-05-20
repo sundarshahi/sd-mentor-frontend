@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+#root {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+}
